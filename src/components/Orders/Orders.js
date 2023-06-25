@@ -5,6 +5,7 @@ import Cart from '../Cart/Cart';
 import ReviewItem from '../ReviewItem/ReviewItem';
 import './Orders.css';
 import { ProductContext } from '../../Contexts/ProductsProvider';
+import { removetheDb } from '../../utilities/addToLocalStorage';
 
 
 
@@ -32,11 +33,10 @@ const Orders = () => {
 
     // }
 
-    const handleRemoveFromCart = (id) => {
-        console.log(id);
-        const remaining = cart.filter(product => product.id !== id);
+    const handleRemoveFromCart = (collection) => {
+        const remaining = cart.filter(product => product.id !== collection.id);
         setCart(remaining);
-        removeFromDb(id);
+        removetheDb(collection);
     }
     return (
         <div>

@@ -11,6 +11,8 @@ import { productsAndCartLoader } from '../Loaders/productsAndCartLoader';
 import Orders from '../components/Orders/Orders';
 import { ProductContext } from '../Contexts/ProductsProvider';
 import PCLoader from '../Loaders/PCLoader';
+import PrivateRoute from './PrivateRoute';
+import ProfileModal from '../components/ProfileModal/ProfileModal';
 
 
 export const routes = createBrowserRouter([
@@ -61,7 +63,7 @@ export const routes = createBrowserRouter([
             },
             {
                 path: '/orders',
-                element: <Orders></Orders>
+                element: <PrivateRoute><Orders></Orders></PrivateRoute>
             }
         ]
     }

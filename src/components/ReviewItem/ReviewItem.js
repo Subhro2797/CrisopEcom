@@ -3,7 +3,7 @@ import './ReviewItem.css';
 import { FaTrashAlt } from 'react-icons/fa';
 
 const ReviewItem = ({ product, handleRemoveFromCart }) => {
-    const { id, name, price, quantity, image } = product;
+    const { id, title, price, quantity, image } = product;
     return (
         <div className='review-item'>
             <div>
@@ -11,12 +11,12 @@ const ReviewItem = ({ product, handleRemoveFromCart }) => {
             </div>
             <div className="review-details-container">
                 <div className="review-details">
-                    <p>{name}</p>
-                    <p><small>Price: {price}</small></p>
-                    <p><small>Quantity: {quantity}</small></p>
+                    <p><i>{title}</i></p>
+                    <p><small>Price: <span className='review-item-info' >{price}</span></small></p>
+                    <p><small>Quantity: <span className='review-item-info'>{quantity}</span></small></p>
                 </div>
                 <div className="delete-container">
-                    <button onClick={() => handleRemoveFromCart(id)} className='delete-btn'>
+                    <button onClick={() => handleRemoveFromCart(product)} className='delete-btn'>
                         {/* <FontAwesomeIcon className='delete-icon' icon={faTrashAlt}></FontAwesomeIcon> */}
                         <FaTrashAlt className='delete-icon'></FaTrashAlt>
                     </button>

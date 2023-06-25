@@ -8,6 +8,7 @@ import { Link } from 'react-router-dom';
 import ProfileModal from '../ProfileModal/ProfileModal';
 import { AuthContext } from '../../Contexts/AuthProvider';
 import Sidebar from '../Sidebar/Sidebar';
+import { ProductContext } from '../../Contexts/ProductsProvider';
 
 const Header = () => {
     const [categories, setCategories] = useState([]);
@@ -24,6 +25,7 @@ const Header = () => {
         setSideBar(false);
     }
     const { user } = useContext(AuthContext);
+    const { cart } = useContext(ProductContext);
     const [selectedFruit, setSelectedFruit] = useState();
     const [modalShow, setModalShow] = useState(false);
     const options = [
@@ -54,9 +56,7 @@ const Header = () => {
                     <div >
                         <img className='brandlogo' src={`https://f8g8b9p5.rocketcdn.me/themes/crisop/wp-content/uploads/2023/02/crisoplogo.png`} alt="" />
                     </div>
-                    <div>
-                        <svg style={{ cursor: 'pointer' }} onClick={showSideBar} className="svgBars ninetheme-svg-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="0" y1="6" x2="21" y2="6"></line><line x1="0" y1="12" x2="15" y2="12"></line><line x1="0" y1="18" x2="21" y2="18"></line></svg>
-                    </div>
+
                 </div>
                 <Sidebar sideBar={sideBar} hideSideBar={hideSideBar}></Sidebar>
                 <div>
@@ -81,9 +81,13 @@ const Header = () => {
                     user?.uid && <p className='user-name'>{user.displayName}</p>
                 }
                 <div className='icon-section d-flex justify-content-evenly align-items-center'>
-                    <div className='w-100'>
-                        <Link to='/orders' style={{ textDecoration: 'none' }}><FaShoppingCart></FaShoppingCart></Link>
-                        <p className='icon-text'>Cart</p>
+                    <div className='w-100 cart-icon position-relative' >
+                        <Link to='/orders' className=''>
+                            <FaShoppingCart></FaShoppingCart></Link><span className="position-absolute  top-0 start-50 translate-middle badge rounded-pill bg-danger">
+                            {cart.length}
+                            <span className="visually-hidden">unread messages</span>
+                        </span>
+                        {/* <p className='icon-text'>Cart</p> */}
                     </div>
                     <div className='w-100'><FaRegHeart></FaRegHeart> <p className=' icon-text'>Wishlist</p> </div>
                     <div className='w-100'><FaRecycle></FaRecycle><p className=' icon-text'>Compare</p></div>
@@ -107,7 +111,7 @@ const Header = () => {
                 <Row className='header-second-part'>
                     <Col className='d-flex justify-content-start align-items-center' style={{ paddingRight: '20px' }}>
                         <div className='category-dropdown'>
-                            <span className='first-category-section dropdown-btn'>Categories </span>
+                            <span className='first-category-section dropdown-btn' onClick={showSideBar}>Categories </span>
                             <div className='dropdown-content'>
                                 {
                                     categories.map((category, index) => <p key={categories[index]}>
@@ -121,7 +125,7 @@ const Header = () => {
 
                             <Link to='/'>Home </Link>
                             <div className='shop-dropdown'>
-                                <Link to='/shop' className='shop-dropdown-btn'>Shop</Link>
+                                <Link to='/shop' className='shop-dropdown-btn'>SHOP</Link>
                                 <div className='shop-dropdown-content'>
                                     <Row>
                                         <Col className='shop-col'>

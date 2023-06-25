@@ -79,20 +79,20 @@ const SignUp = () => {
     return (
         <Form onSubmit={handleSubmit}>
             <Form.Group className="mb-3" controlId="formBasicName">
-                <Form.Label>Name</Form.Label>
+                <Form.Label className='fw-medium text-primary-emphasis'>Name</Form.Label>
                 <Form.Control type="text" name='name' placeholder="Enter name" required />
             </Form.Group>
             <Form.Group className="mb-3" controlId="formBasicEmail">
-                <Form.Label>Email address</Form.Label>
+                <Form.Label className='fw-medium text-primary-emphasis'>Email address</Form.Label>
                 <Form.Control type="email" name='email' placeholder="Enter email" required />
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="formBasicPassword">
-                <Form.Label>Password</Form.Label>
+                <Form.Label className='fw-medium text-primary-emphasis'>Password</Form.Label>
                 <Form.Control type="password" name='password' placeholder="Enter Password" />
             </Form.Group>
             <Form.Group className="mb-3" controlId="formBasicConfirmPassword">
-                <Form.Label>Confirm Password</Form.Label>
+                <Form.Label className='fw-medium text-primary-emphasis'>Confirm Password</Form.Label>
                 <Form.Control type='password' name='confirmPassword' placeholder='Confirm Password'></Form.Control>
             </Form.Group>
             {passwordError && <p className='text-danger'>{passwordErrorMessage} </p>}

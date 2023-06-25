@@ -20,9 +20,12 @@ const removetheDb = (collection) => {
     if (removedProduct) {
         console.log(removedProduct.quantity);
 
-        if (removedProduct.quantity > 0) {
+        if (removedProduct.quantity > 1) {
             removedProduct.quantity -= 1;
 
+        }
+        else if (removedProduct.quantity === 1) {
+            arrayCollection.pop(removedProduct);
         }
         else {
             arrayCollection.pop(removedProduct);

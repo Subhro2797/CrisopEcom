@@ -24,6 +24,11 @@
     width: 30px;
 }
 
+.cart-icon>a {
+
+    color: darkolivegreen;
+}
+
 /* .icon-section>div {
     margin-right: 10px;
 } */
