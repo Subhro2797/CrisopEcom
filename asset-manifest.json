@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/CrisopEcom/static/css/main.9e7f6a64.css",
-    "main.js": "/CrisopEcom/static/js/main.395d517c.js",
+    "main.js": "/CrisopEcom/static/js/main.16fa6d34.js",
     "static/js/787.d05f9513.chunk.js": "/CrisopEcom/static/js/787.d05f9513.chunk.js",
     "index.html": "/CrisopEcom/index.html",
     "main.9e7f6a64.css.map": "/CrisopEcom/static/css/main.9e7f6a64.css.map",
-    "main.395d517c.js.map": "/CrisopEcom/static/js/main.395d517c.js.map",
+    "main.16fa6d34.js.map": "/CrisopEcom/static/js/main.16fa6d34.js.map",
     "787.d05f9513.chunk.js.map": "/CrisopEcom/static/js/787.d05f9513.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.9e7f6a64.css",
-    "static/js/main.395d517c.js"
+    "static/js/main.16fa6d34.js"
   ]
 }
