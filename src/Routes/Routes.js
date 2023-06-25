@@ -24,7 +24,7 @@ export const routes = createBrowserRouter([
                 element: <Home></Home>
             },
             {
-                path: '/CrisopEcom',
+                path: '/CrisopEcom/',
                 element: <Home></Home>
             },
             {
