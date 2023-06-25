@@ -1,0 +1,15 @@
+.cart {
+    position: sticky;
+    top: 0;
+    padding: 30px 20px;
+}
+
+.common-btn {
+    padding: 0 10px;
+    background: linear-gradient(60deg, lightcoral, green);
+    border: none;
+    border-top-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    color: whitesmoke;
+    margin-top: 10px;
+}
