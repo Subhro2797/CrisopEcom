@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import { ProductContext } from '../../Contexts/ProductsProvider';
 
 const Product = (props) => {
-    const { handleAddtoWishlist, clicked } = useContext(ProductContext);
+    const { handleAddtoWishlist } = useContext(ProductContext);
     const { product, handleAddtoCart } = props;
     const { image, title, price, rating, id } = product;
     return (
@@ -26,7 +26,8 @@ const Product = (props) => {
 
                 <div className='footer-section'>
                     <button className='checkout-btn' ><Link to={`/products/${id}`}>Details</Link></button>
-                    <FaRegHeart onClick={() => handleAddtoWishlist(product)} className='heart-wishlist'></FaRegHeart>
+                    <FaRegHeart onClick={() => handleAddtoWishlist(product)} className='blue-heart-wishlist'></FaRegHeart>
+                    {/* <button ref={wishlistRef} style={{ color: 'blue' }} onClick={() => handleAddtoWishlist(product)} className='heart-wishlist'>Love</button> */}
 
                 </div>
                 <button className='addtocart-btn' onClick={() => handleAddtoCart(product)}>Add to Cart</button>

@@ -23,7 +23,7 @@ const SingleProduct = () => {
                 <h6>Specifications: </h6>
                 <p>{description}</p>
                 <h6>Rating:{rating.rate} <FaStar style={{ color: 'orange', marginLeft: '5px' }} /></h6>
-                <button onClick={handleAddtoCart} className='addtocart-btn'>Add to Cart</button>
+                <button onClick={() => handleAddtoCart(productInfo)} className='addtocart-btn'>Add to Cart</button>
 
 
 

@@ -85,9 +85,17 @@
     align-items: center;
 }
 
-.heart-wishlist {
+.blue-heart-wishlist {
     width: 25px;
     height: 25px;
     cursor: pointer;
-    color: blue;
+    fill: blue;
+
+}
+
+.red-heart-wishlist {
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    fill: red;
 }

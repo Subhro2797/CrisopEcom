@@ -14,6 +14,8 @@ const Wishlist = () => {
     }
     return (
         <div >
+            <h5 className='wishlist-title'>My Wishlist</h5>
+            <p className="wishlist-caption" >View favorite products you've saved to your wishlist</p>
             <div className='wishlist-section'>
                 {
                     wishlist.map((product) => <WishlistProduct

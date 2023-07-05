@@ -80,10 +80,11 @@ const Header = () => {
                         </span>
                         {/* <p className='icon-text'>Cart</p> */}
                     </div>
-                    <div className='w-100'>
-                        <Link to='/wishlist'><FaRegHeart></FaRegHeart><span className="position-absolute wishlist-badge translate-middle badge rounded-pill bg-danger">
-                            {wishlist.length}
-                            <span className="visually-hidden">unread messages</span></span></Link> </div>
+                    <div className='w-100 position-relative'>
+                        <Link to='/wishlist'>
+                            <FaRegHeart></FaRegHeart></Link><span className="position-absolute top-0 start-50 wishlist-badge translate-middle badge rounded-pill bg-danger">
+                            {wishlist.length}<span className="visually-hidden">unread messages</span>
+                        </span> </div>
                     <div className='w-100'><FaRecycle></FaRecycle><p className=' icon-text'>Compare</p></div>
 
 
@@ -174,7 +175,7 @@ const Header = () => {
                                 </div>
                             </div>
 
-                            <Link to='/products'>Products</Link>
+                            <Link to='/home'>Products</Link>
 
                         </div>
                     </Col>

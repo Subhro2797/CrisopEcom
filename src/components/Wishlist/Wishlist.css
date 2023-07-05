@@ -4,3 +4,25 @@
     row-gap: 20px;
     column-gap: 20px;
 }
+
+.wishlist-caption {
+    font-family: cursive;
+    font: 500;
+    font-weight: 'bold';
+    font-size: 20px;
+    text-align: start;
+    color: darkcyan;
+}
+
+
+.wishlist-title {
+    font-family: cursive;
+    font: 500;
+    font-weight: 'bold';
+    font-size: 30px;
+    text-align: center;
+    color: darkcyan;
+    border-bottom: 2px dotted firebrick;
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(102, 175, 233, 0.6);
+    transition: 0.2s ease-in-out;
+}

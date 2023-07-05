@@ -9,7 +9,7 @@ const ProductsProvider = ({ children }) => {
     const [products, setProducts] = useState([]);
     const [cart, setCart] = useState([]);
     const [wishlist, setWishlist] = useState([]);
-    // const [color, setColor] = "blue";
+
 
 
 
@@ -18,21 +18,21 @@ const ProductsProvider = ({ children }) => {
         setCart(storedCart);
     }, [])
 
+
     useEffect(() => {
         const storedWishList = getWishList();
         setWishlist(storedWishList);
     }, [wishlist.length])
 
-    // useEffect(() => {
-    //     const heartWishList = document.getElementsByClassName("heart-wishlist");
-    //     heartWishList.color = color;
-    // }, [color])
+
 
     useEffect(() => {
         fetch('https://fakestoreapi.com/products')
             .then(res => res.json())
             .then(data => setProducts(data));
     }, [])
+
+
 
     const handleAddtoCart = (selectedProduct) => {
         let newCart = [];
@@ -50,22 +50,11 @@ const ProductsProvider = ({ children }) => {
         }
 
         setCart(newCart);
-        // addToDb(selectedProduct.id, selectedProduct.title);
         addtolocalstorage(selectedProduct, selectedProduct.id, selectedProduct.quantity);
     }
-    // const handleAddtoWishlist = (selectedProduct) => {
-    //     let newWishlist = [];
-    //     const searchProduct = products.find(product => product.id === selectedProduct.id);
-    //     const prevProduct = wishlist.find(product => product.id === selectedProduct.id);
-    //     if (searchProduct && !prevProduct) {
-    //         newWishlist = [...wishlist, selectedProduct];
-    //         setWishlist(newWishlist);
-    //         addWishlistToLocalStorage(selectedProduct, selectedProduct.id, selectedProduct.quantity);
 
-    //     }
+    const handleAddtoWishlist = (selectedProduct, clicked) => {
 
-    // }
-    const handleAddtoWishlist = (selectedProduct) => {
         let newCart = [];
         const exists = cart.find(product => product.id === selectedProduct.id);
 
@@ -81,7 +70,6 @@ const ProductsProvider = ({ children }) => {
         }
 
         setWishlist(newCart);
-        // addToDb(selectedProduct.id, selectedProduct.title);
         addWishlistToLocalStorage(selectedProduct, selectedProduct.id, selectedProduct.quantity);
     }
 
@@ -109,28 +97,7 @@ const ProductsProvider = ({ children }) => {
         deletetheStoredCart();
     }
 
-    // const productsAndCartLoader = async () => {
-    //     setLoading(true);
-    //     try {
-    //         const savedCart = getStoredCart();
-    //         const initialCart = [];
-    //         for (const id in savedCart) {
-    //             const addedProduct = products.find(product => product.id === id);
-    //             if (addedProduct) {
-    //                 const quantity = savedCart[id];
-    //                 addedProduct.quantity = quantity;
-    //                 initialCart.push(addedProduct);
-    //             }
-    //         }
-    //         setCart(initialCart);
-    //     }
-    //     catch (e) {
-    //         setError(e.message);
-    //     }
-    //     finally {
-    //         setLoading(false);
-    //     }
-    // }
+
 
     const productInfo = { products, cart, setCart, wishlist, setWishlist, handleAddtoWishlist, handleAddtoCart, handleRemovefromtheCart, clearCart };
 
