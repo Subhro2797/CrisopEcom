@@ -1,0 +1,136 @@
+.search-container {
+    width: 400px;
+    display: flex;
+    /* flex-direction: column; */
+    position: relative;
+
+}
+
+
+
+.search-container-new {
+    width: 400px;
+    display: flex;
+}
+
+.search-container-alternative {
+    width: 400px;
+    display: flex;
+
+}
+
+/* .dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+} */
+
+.dropdown {
+    background-color: yellowgreen;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid grey;
+    position: absolute;
+    width: 80%;
+    z-index: 1;
+    padding: 0 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.dropdown-new {
+    overflow-y: scroll;
+    background-color: whitesmoke;
+    position: absolute;
+    width: 80%;
+    z-index: 1;
+    padding: 0 20px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    max-height: 200px;
+}
+
+.dropdown-new-hidden {
+    display: none;
+}
+
+.dropdown:empty {
+    border: none;
+}
+
+.dropdown-hidden {
+    display: none;
+}
+
+.dropdown-row {
+    cursor: pointer;
+    text-align: start;
+    margin: 2px 0;
+    border-width: 1px 0 1px 0;
+    border-style: solid;
+    border-color: darkolivegreen;
+    padding-left: 5px;
+    font-weight: 500;
+    /* position: relative; */
+    display: block;
+
+
+}
+
+.dropdown-row:hover {
+    background-color: khaki;
+    border-radius: 10px;
+}
+
+
+
+input {
+    width: 350px;
+}
+
+/* .search-inner {
+    display: flex;
+
+} */
+
+.search-btn {
+    bottom: 0;
+    border: none;
+    background: linear-gradient(45deg, lightcoral, green);
+    border-radius: 0 10px 10px 0;
+    color: white;
+    padding: 0 10px;
+
+}
+
+.search-btn:hover {
+    color: #343434;
+    font-weight: 500;
+    background: linear-gradient(60deg, coral, lightgreen);
+}
+
+
+
+.search-box {
+    border: 2px solid lightcoral;
+    border-radius: 10px 0 0 10px;
+    border-right: 0;
+    width: 500px;
+    height: 40px;
+    padding-left: 10px;
+    outline: none;
+    transition: 0.2s ease-in-out;
+    /* box-sizing: border-box; */
+    /* position: relative; */
+}
+
+.search-box:focus {
+    transition: 0.2s ease-in-out;
+    border: 2px solid lightslategrey;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(102, 175, 233, 0.6);
+    border-right: 0;
+}

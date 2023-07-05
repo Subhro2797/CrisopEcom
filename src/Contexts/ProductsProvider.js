@@ -1,5 +1,6 @@
 import React, { createContext, useEffect, useState } from 'react';
 import { addtolocalstorage, deletetheStoredCart, getStoredCart, removetheDb } from '../utilities/addToLocalStorage';
+import { addWishlistToLocalStorage, getWishList } from '../utilities/addWishListToLocalStorage';
 
 
 export const ProductContext = createContext();
@@ -7,17 +8,31 @@ export const ProductContext = createContext();
 const ProductsProvider = ({ children }) => {
     const [products, setProducts] = useState([]);
     const [cart, setCart] = useState([]);
+    const [wishlist, setWishlist] = useState([]);
+    // const [color, setColor] = "blue";
+
+
 
     useEffect(() => {
         const storedCart = getStoredCart();
         setCart(storedCart);
-    }, [products])
+    }, [])
+
+    useEffect(() => {
+        const storedWishList = getWishList();
+        setWishlist(storedWishList);
+    }, [wishlist.length])
+
+    // useEffect(() => {
+    //     const heartWishList = document.getElementsByClassName("heart-wishlist");
+    //     heartWishList.color = color;
+    // }, [color])
 
     useEffect(() => {
         fetch('https://fakestoreapi.com/products')
             .then(res => res.json())
             .then(data => setProducts(data));
-    }, [products])
+    }, [])
 
     const handleAddtoCart = (selectedProduct) => {
         let newCart = [];
@@ -37,6 +52,37 @@ const ProductsProvider = ({ children }) => {
         setCart(newCart);
         // addToDb(selectedProduct.id, selectedProduct.title);
         addtolocalstorage(selectedProduct, selectedProduct.id, selectedProduct.quantity);
+    }
+    // const handleAddtoWishlist = (selectedProduct) => {
+    //     let newWishlist = [];
+    //     const searchProduct = products.find(product => product.id === selectedProduct.id);
+    //     const prevProduct = wishlist.find(product => product.id === selectedProduct.id);
+    //     if (searchProduct && !prevProduct) {
+    //         newWishlist = [...wishlist, selectedProduct];
+    //         setWishlist(newWishlist);
+    //         addWishlistToLocalStorage(selectedProduct, selectedProduct.id, selectedProduct.quantity);
+
+    //     }
+
+    // }
+    const handleAddtoWishlist = (selectedProduct) => {
+        let newCart = [];
+        const exists = cart.find(product => product.id === selectedProduct.id);
+
+        if (!exists) {
+            selectedProduct.quantity = 1;
+            newCart = [...wishlist, selectedProduct];
+
+        }
+        else {
+            const rest = wishlist.filter(product => product.id !== selectedProduct.id);
+            exists.quantity = exists.quantity + 1;
+            newCart = [...rest, exists];
+        }
+
+        setWishlist(newCart);
+        // addToDb(selectedProduct.id, selectedProduct.title);
+        addWishlistToLocalStorage(selectedProduct, selectedProduct.id, selectedProduct.quantity);
     }
 
     const handleRemovefromtheCart = (selectedProduct) => {
@@ -86,7 +132,7 @@ const ProductsProvider = ({ children }) => {
     //     }
     // }
 
-    const productInfo = { products, cart, setCart, handleAddtoCart, handleRemovefromtheCart, clearCart };
+    const productInfo = { products, cart, setCart, wishlist, setWishlist, handleAddtoWishlist, handleAddtoCart, handleRemovefromtheCart, clearCart };
 
     return (
         <ProductContext.Provider value={productInfo}>

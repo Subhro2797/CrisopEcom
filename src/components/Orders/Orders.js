@@ -47,7 +47,12 @@ const Orders = () => {
                             key={product.id}
                             product={product}
                             handleRemoveFromCart={handleRemoveFromCart}
-                        ></ReviewItem>) : <div className='nothing'><h1>There is nothing in the cart. Please <Link to='/'>Shop more</Link></h1></div>
+                        ></ReviewItem>)
+
+                            : <div className='nothing'><h1>There is nothing in the cart. Please <Link to='/'>Shop more</Link></h1></div>
+                    }
+                    {
+                        cart.length > 0 && <Link to='/checkout'><button className='checkout-btn'>Check Out</button></Link>
                     }
 
 

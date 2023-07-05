@@ -7,12 +7,12 @@ import SignUp from '../components/SignUp/SignUp';
 import Shop from '../components/Shop/Shop';
 import Category from '../components/Category/Category';
 import SingleProduct from '../components/SingleProduct/SingleProduct';
-import { productsAndCartLoader } from '../Loaders/productsAndCartLoader';
 import Orders from '../components/Orders/Orders';
-import { ProductContext } from '../Contexts/ProductsProvider';
-import PCLoader from '../Loaders/PCLoader';
 import PrivateRoute from './PrivateRoute';
-import ProfileModal from '../components/ProfileModal/ProfileModal';
+import Wishlist from '../components/Wishlist/Wishlist';
+import Result from '../components/Result/Result';
+import CheckOut from '../components/CheckOut/CheckOut';
+import Billing from '../components/Billing/Billing';
 
 
 export const routes = createBrowserRouter([
@@ -64,6 +64,22 @@ export const routes = createBrowserRouter([
             {
                 path: '/orders',
                 element: <PrivateRoute><Orders></Orders></PrivateRoute>
+            },
+            {
+                path: '/wishlist',
+                element: <Wishlist></Wishlist>
+            },
+            {
+                path: '/result',
+                element: <Result></Result>
+            },
+            {
+                path: '/checkout',
+                element: <CheckOut></CheckOut>
+            },
+            {
+                path: 'billing',
+                element: <Billing></Billing>
             }
         ]
     }

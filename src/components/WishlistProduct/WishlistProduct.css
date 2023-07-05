@@ -1,0 +1,27 @@
+.wishlist-product-image {
+    height: 300px;
+    width: 120px;
+    /* padding-left: 40px; */
+    object-fit: contain;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+
+.individual-wishlist-card {
+    width: 350px;
+    height: 450px;
+    border: none;
+    border-bottom-color: chocolate;
+    border-top-color: chocolate;
+    box-shadow: 8px 4px darkgrey;
+}
+
+.footer-section {
+    display: flex;
+
+}
+
+.remove-Wishlist-btn-section {
+    border: none;
+
+}

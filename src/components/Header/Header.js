@@ -9,9 +9,12 @@ import ProfileModal from '../ProfileModal/ProfileModal';
 import { AuthContext } from '../../Contexts/AuthProvider';
 import Sidebar from '../Sidebar/Sidebar';
 import { ProductContext } from '../../Contexts/ProductsProvider';
+import SearchBar from '../SearchBar/SearchBar';
+import Wishlist from '../Wishlist/Wishlist';
 
 const Header = () => {
     const [categories, setCategories] = useState([]);
+
     // useEffect(() => {
     //     fetch('')
     //         .then(res => res.json())
@@ -25,8 +28,7 @@ const Header = () => {
         setSideBar(false);
     }
     const { user } = useContext(AuthContext);
-    const { cart } = useContext(ProductContext);
-    const [selectedFruit, setSelectedFruit] = useState();
+    const { cart, wishlist } = useContext(ProductContext);
     const [modalShow, setModalShow] = useState(false);
     const options = [
         { value: 'orange', lable: 'Orange' },
@@ -51,32 +53,21 @@ const Header = () => {
 
 
 
-            <div className=' d-flex justify-content-between container align-items-center  mb-2'>
+            <div className=' d-flex justify-content-between container align-items-center  mb-2' style={{ position: 'relative' }}>
                 <div className='d-flex align-items-center'>
-                    <div >
+                    <Link to='/'>
                         <img className='brandlogo' src={`https://f8g8b9p5.rocketcdn.me/themes/crisop/wp-content/uploads/2023/02/crisoplogo.png`} alt="" />
-                    </div>
+                    </Link>
 
                 </div>
                 <Sidebar sideBar={sideBar} hideSideBar={hideSideBar}></Sidebar>
-                <div>
-                    <div className='search-bar'>
-                        <Form action="">
-                            <span className='mx-1'><svg className="search-icon" fill="currentColor" height="512" width="512" viewBox="0 0 25 25" xmlns="http://www.w3.org/2000/svg"><path d="m20.5 11h-16a.5.5 0 0 1 0-1h16a.5.5 0 0 1 0 1z"></path><path d="m20.5 7h-16a.5.5 0 0 1 0-1h16a.5.5 0 0 1 0 1z"></path><path d="m11.5 15h-7a.5.5 0 0 1 0-1h7a.5.5 0 0 1 0 1z"></path><path d="m11.5 19h-7a.5.5 0 0 1 0-1h7a.5.5 0 0 1 0 1z"></path><path d="m20.5 19a.5.5 0 0 1 -.308-.106l-2.092-1.634a.5.5 0 0 1 .615-.788l2.095 1.634a.5.5 0 0 1 -.31.894z"></path><path d="m16.715 18.2a2.64 2.64 0 1 1 2.64-2.64 2.643 2.643 0 0 1 -2.64 2.64zm0-4.28a1.64 1.64 0 1 0 1.64 1.64 1.642 1.642 0 0 0 -1.64-1.64z"></path></svg></span>
-                            <select onChange={(e) => setSelectedFruit(e.target.value)} options={options} value={selectedFruit} className='d-none' >
-                                {/* <option value="apple">Apple</option>
-                            <option value="orange">Orange</option>
-                            <option value="pear">Pear</option>
-                            <option value="mango">Mango</option> */}
-                                {
-                                    options.map(option => <option key={option.value
-                                    }>{option.lable}</option>)
-                                }
-                            </select>
-                            <input type="search" className='search-box' name="searchbox" id="" placeholder=' Search products here' />
-                        </Form>
-                    </div>
+
+                {/* <div className='search-bar'>
+                    </div> */}
+                <div className='header-search-bar'>
+                    <SearchBar></SearchBar>
                 </div>
+
                 {
                     user?.uid && <p className='user-name'>{user.displayName}</p>
                 }
@@ -89,7 +80,10 @@ const Header = () => {
                         </span>
                         {/* <p className='icon-text'>Cart</p> */}
                     </div>
-                    <div className='w-100'><FaRegHeart></FaRegHeart> <p className=' icon-text'>Wishlist</p> </div>
+                    <div className='w-100'>
+                        <Link to='/wishlist'><FaRegHeart></FaRegHeart><span className="position-absolute wishlist-badge translate-middle badge rounded-pill bg-danger">
+                            {wishlist.length}
+                            <span className="visually-hidden">unread messages</span></span></Link> </div>
                     <div className='w-100'><FaRecycle></FaRecycle><p className=' icon-text'>Compare</p></div>
 
 

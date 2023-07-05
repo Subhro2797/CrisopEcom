@@ -1,0 +1,62 @@
+.checkout-page-container {
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+}
+
+.checkout-page {
+
+    width: 400px;
+    box-shadow: 8px 4px darkgrey;
+    background-color: khaki;
+    border-radius: 17px;
+}
+
+.input-box {
+    transition: 0.2s ease-in-out;
+    height: 20px;
+    padding: 14px;
+    outline: 0;
+    box-sizing: border-box;
+    border: none;
+    border-bottom: 2px solid chocolate;
+    background-color: khaki;
+    margin: 14px 0;
+
+
+}
+
+/* .input-box:focus {
+    outline: none;
+    transition: 0.2s ease-in-out;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(74, 137, 103, 0.6);
+} */
+
+.full-line {
+    max-width: 825px;
+    padding: 20px 33px 0 33px;
+}
+
+.billing-btn-container {
+    display: flex;
+    justify-content: end;
+    padding-right: 40px;
+    padding-bottom: 30px;
+}
+
+.billing-submit-btn {
+    border: 1px solid whitesmoke;
+    background-color: white;
+    font-weight: 500;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 0 15px;
+    border-radius: 10px;
+}
+
+.zip-state-container {
+    display: flex;
+    padding-left: 24px;
+    padding-right: 24px;
+
+
+}

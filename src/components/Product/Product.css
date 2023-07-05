@@ -50,6 +50,8 @@
     border-radius: 10px;
     color: aliceblue;
     padding: 0 10px;
+    display: flex;
+    justify-content: flex-start;
 }
 
 .checkout-btn {
@@ -74,4 +76,18 @@
 .checkout-btn a {
     text-decoration: none;
     color: aliceblue;
+}
+
+
+.footer-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.heart-wishlist {
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    color: blue;
 }

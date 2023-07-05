@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Card } from 'react-bootstrap';
 import './Product.css';
-import { FaDollarSign, FaEye } from 'react-icons/fa';
+import { FaDollarSign, FaEye, FaHeart, FaRegHeart } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import { ProductContext } from '../../Contexts/ProductsProvider';
 
 const Product = (props) => {
+    const { handleAddtoWishlist, clicked } = useContext(ProductContext);
     const { product, handleAddtoCart } = props;
     const { image, title, price, rating, id } = product;
     return (
@@ -20,7 +22,13 @@ const Product = (props) => {
                 </Card.Text>
             </Card.Body>
             <Card.Footer  >
-                <button className='checkout-btn' ><Link to={`/products/${id}`}>Check Out</Link></button>
+
+
+                <div className='footer-section'>
+                    <button className='checkout-btn' ><Link to={`/products/${id}`}>Details</Link></button>
+                    <FaRegHeart onClick={() => handleAddtoWishlist(product)} className='heart-wishlist'></FaRegHeart>
+
+                </div>
                 <button className='addtocart-btn' onClick={() => handleAddtoCart(product)}>Add to Cart</button>
             </Card.Footer>
         </Card>

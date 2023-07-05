@@ -9,14 +9,17 @@
 }
 
 
-
-
-.search-box {
-    border: 2px solid lightcoral;
-    border-radius: 10px;
-    width: 500px;
-    height: 40px;
+.header-search-bar {
+    position: relative;
 }
+
+.wishlist-badge {
+    top: 20px;
+    left: 960px;
+
+}
+
+
 
 .icon-section * {
     margin: 0 10px;

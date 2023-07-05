@@ -1,0 +1,11 @@
+.billing-page-container {
+    display: flex;
+    justify-content: center;
+}
+
+.billing-page {
+    width: 800px;
+    box-shadow: 8px 4px darkgrey;
+    background-color: khaki;
+    border-radius: 17px;
+}
